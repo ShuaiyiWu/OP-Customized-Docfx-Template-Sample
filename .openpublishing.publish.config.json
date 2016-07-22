@@ -1,25 +1,51 @@
 {
+  "branches_to_filter": [],
   "build_entry_point": "op",
-  "need_generate_pdf": false,
-  "need_generate_intellisense": false,
+  "customized_docfx_template_task_definition": [
+    {
+      "customized_msdn_template": {
+        "id": "op-sample-template",
+        "nuget_feed": "https://www.nuget.org/api/v2",
+        "templates": [
+          "templates/op.html",
+          "templates/msdn.html"
+        ],
+        "type": "nuget",
+        "version": "1.1.1"
+      },
+      "customized_op_template": {
+        "path": [
+          "customizedTemplates/customized_op_sample_first.html",
+          "customizedTemplates/customized_op_sample_second.html",
+          "customizedTemplates/customized_op_sample_third.html"
+        ],
+        "type": "local"
+      }
+    }
+  ],
+  "dependent_repositories": [],
   "docsets_to_publish": [
     {
-      "docset_name": "OP-Customized-Docfx-Template-Sample",
-      "build_source_folder": "OP-Customized-Docfx-Template-Sample",
+      "build_entry_point": "op",
       "build_output_subfolder": "shuaiyi/OP-Customized-Docfx-Template-Sample",
+      "build_source_folder": "OP-Customized-Docfx-Template-Sample",
+      "customized_template_tasks": [
+        "customized_msdn_template",
+        "customized_op_template"
+      ],
+      "docset_name": "OP-Customized-Docfx-Template-Sample",
       "locale": "en-us",
-      "version": 0,
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
         "RestApi": "Content"
       },
-      "build_entry_point": "op"
+      "version": 0
     }
   ],
+  "need_generate_intellisense": false,
+  "need_generate_pdf": false,
   "notification_subscribers": [],
-  "branches_to_filter": [],
-  "skip_source_output_uploading": false,
-  "dependent_repositories": []
+  "skip_source_output_uploading": false
 }

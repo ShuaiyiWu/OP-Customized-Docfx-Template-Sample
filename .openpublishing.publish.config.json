@@ -1,26 +1,37 @@
 {
   "branches_to_filter": [],
   "build_entry_point": "op",
-  "customized_docfx_template_task_definition": [
+  "customized_tasks": [
     {
-      "customized_msdn_template": {
-        "id": "op-sample-template",
-        "nuget_feed": "https://www.nuget.org/api/v2",
-        "templates": [
-          "templates/op.html",
-          "templates/msdn.html"
-        ],
-        "type": "nuget",
-        "version": "1.1.1"
-      },
-      "customized_op_template": {
-        "path": [
-          "customizedTemplates/customized_op_sample_first.html",
-          "customizedTemplates/customized_op_sample_second.html",
-          "customizedTemplates/customized_op_sample_third.html"
-        ],
-        "type": "local"
-      }
+      "docset_cleanup": [],
+      "docset_postbuild": [],
+      "docset_prebuild": [],
+      "repo_cleanup": [],
+      "repo_setup": [
+        "script_from_nuget/tools/entry_point.ps1",
+        "script_from_URL/Avocado.ps1"
+      ]
+    }
+  ],
+  "dependent_URLs": [
+    {
+      "path_to_root": "script_from_URL/Avocado.ps1",
+      "url": "https://gist.githubusercontent.com/ShuaiyiWu/54babd8f703238bcf76ab7a9905f072a/raw/c0b1bab2f2a0fa332c96dd7a692c5a25d37b868d/Avocado.ps1"
+    }
+  ],
+  "dependent_packages": [
+    {
+      "id": "OP_customized_script_smaple",
+      "nuget_feed": "https://www.nuget.org/api/v2",
+      "path_to_root": "script_from_nuget",
+      "target_framework": "net45",
+      "version": "1.0.0"
+    },
+    {
+      "id": "op-sample-template",
+      "nuget_feed": "https://www.nuget.org/api/v2",
+      "path_to_root": "customizedTemplates",
+      "version": "1.1.1"
     }
   ],
   "dependent_repositories": [],
@@ -29,9 +40,15 @@
       "build_entry_point": "op",
       "build_output_subfolder": "shuaiyi/OP-Customized-Docfx-Template-Sample",
       "build_source_folder": "OP-Customized-Docfx-Template-Sample",
-      "customized_template_tasks": [
-        "customized_msdn_template",
-        "customized_op_template"
+      "customized_tasks": {
+        "docset_cleanup": [],
+        "docset_postbuild": [],
+        "docset_prebuild": [
+          "script_from_local/local_script.ps1"
+        ]
+      },
+      "customized_template_paths": [
+        "customizedTemplates/templates/msdn.html"
       ],
       "docset_name": "OP-Customized-Docfx-Template-Sample",
       "locale": "en-us",
